@@ -162,3 +162,8 @@ def step_impl(context, message):
         )
     )
     assert(found)
+    
+@then('I should "{text_string}"')
+def step_impl(context, text_string):
+    element = context.driver.find_element(By.TAG_NAME, 'body')
+    assert(text_string in element.text)
