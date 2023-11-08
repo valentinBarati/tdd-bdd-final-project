@@ -223,7 +223,7 @@ class TestProductModel(unittest.TestCase):
             product.deserialize(serialized_product)
 
     def test_find_by_name(self):
-        """It should Find a Product by Name"""
+        """It should return all products"""
         products = ProductFactory.create_batch(10)
         for product in products:
             product.create()
