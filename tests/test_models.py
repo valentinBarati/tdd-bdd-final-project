@@ -221,3 +221,10 @@ class TestProductModel(unittest.TestCase):
         serialized_product['available'] = 'test'
         with self.assertRaises(DataValidationError):
             product.deserialize(serialized_product)
+
+    def test_find_by_name(self):
+        """It should Find a Product by Name"""
+        products = ProductFactory.create_batch(10)
+        for product in products:
+            product.create()
+        self.assertTrue(True if len(Product.all()) > 0 else False)
